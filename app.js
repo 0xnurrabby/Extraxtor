@@ -3,17 +3,17 @@ import { Attribution } from "https://esm.sh/ox/erc8021";
 
 const DOMAIN = "nurrabby.com";
 const PRIMARY_ROUTE = "/";
-const HOME_URL = "https://nurrabby.com/";
+const HOME_URL = "https://extraxtor.vercel.app/";
 
 const GAME_CONTRACT = "0xB331328F506f2D35125e367A190e914B1b6830cF";
 const USDC_CONTRACT = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913";
 const USDC_DECIMALS = 6;
 
 // Recipient for tips (set to your contract; change to an EOA if you prefer)
-const RECIPIENT = "0xB331328F506f2D35125e367A190e914B1b6830cF";
+const RECIPIENT = "0x5eC6AF0798b25C563B102d3469971f1a8d598121";
 
 // Builder Code required by the prompt. Replace this with your real code.
-const BUILDER_CODE = "TODO_REPLACE_BUILDER_CODE";
+const BUILDER_CODE = "bc_rpsrjjtz";
 
 const dataSuffix = Attribution.toDataSuffix({
   codes: [BUILDER_CODE],

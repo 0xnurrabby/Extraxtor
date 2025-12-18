@@ -1,9 +1,9 @@
 import { sdk } from "https://esm.sh/@farcaster/miniapp-sdk@0.2.1";
 import { Attribution } from "https://esm.sh/ox/erc8021";
 
-const DOMAIN = "nurrabby.com";
+const DOMAIN = "https://extraxtor.vercel.app/";
 const PRIMARY_ROUTE = "/";
-const HOME_URL = "https://nurrabby.com/";
+const HOME_URL = "https://extraxtor.vercel.app/";
 
 const GAME_CONTRACT = "0xB331328F506f2D35125e367A190e914B1b6830cF";
 const USDC_CONTRACT = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913";

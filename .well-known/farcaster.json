@@ -1,0 +1,33 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "The Extraction",
+    "subtitle": "Risk and Reward RPG",
+    "description": "Dive deeper for more loot. Extract to secure it onchain. Die and lose the run. Pay to revive and try again.",
+    "iconUrl": "https://nurrabby.com/assets/icon-1024.png",
+    "homeUrl": "https://nurrabby.com/",
+    "canonicalDomain": "nurrabby.com",
+    "splashImageUrl": "https://nurrabby.com/assets/splash-200.png",
+    "splashBackgroundColor": "#001b0a",
+    "primaryCategory": "games",
+    "tags": [
+      "game",
+      "roguelite",
+      "dungeon",
+      "base",
+      "farcaster"
+    ],
+    "requiredChains": [
+      "eip155:8453"
+    ],
+    "requiredCapabilities": [
+      "actions.ready",
+      "wallet.getEthereumProvider"
+    ]
+  }
+}

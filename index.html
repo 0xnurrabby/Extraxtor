@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="fc:miniapp" content='{"version":"1","imageUrl":"https://extraxtor.vercel.app/assets/embed-3x2.png","button":{"title":"Enter The Extraction","action":{"type":"launch_frame","name":"The Extraction","url":"https://extraxtor.vercel.app/","splashImageUrl":"https://extraxtor.vercel.app/assets/splash-200.png","splashBackgroundColor":"#001b0a"}}}' />
+<meta name="fc:frame" content='{"version":"1","imageUrl":"https://extraxtor.vercel.app/assets/embed-3x2.png","button":{"title":"Enter The Extraction","action":{"type":"launch_frame","name":"The Extraction","url":"https://extraxtor.vercel.app/","splashImageUrl":"https://extraxtor.vercel.app/assets/splash-200.png","splashBackgroundColor":"#001b0a"}}}' />
+<link rel="icon" href="https://extraxtor.vercel.app/assets/icon-1024.png">
+<link rel="preconnect" href="https://esm.sh" crossorigin>
+<link rel="stylesheet" href="https://extraxtor.vercel.app/styles.css">
+<title>The Extraction</title><meta name="base:app_id" content="69442e76d77c069a945be020" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game">
+      <header class="top">
+        <div class="brand">
+          <div class="logo"></div>
+          <div class="brandText">
+            <div class="title">The Extraction</div>
+            <div class="sub">Risk &amp; Reward Cyber-Dungeon</div>
+          </div>
+        </div>
+        <button id="btnClose" class="ghost" type="button" title="Close">✕</button>
+      </header>
+
+      <main class="main">
+        <section class="panel">
+          <div class="row">
+            <div class="stat">
+              <div class="k">Depth</div>
+              <div class="v" id="depth">0</div>
+            </div>
+            <div class="stat">
+              <div class="k">HP</div>
+              <div class="v"><span id="hp">100</span><span class="muted">/100</span></div>
+            </div>
+            <div class="stat">
+              <div class="k">Loot</div>
+              <div class="v"><span id="loot">0</span><span class="muted"> pts</span></div>
+            </div>
+          </div>
+
+          <div class="log" id="log" aria-live="polite"></div>
+
+          <div class="ctaRow">
+            <button id="btnDive" class="primary" type="button">Dive Deeper</button>
+            <button id="btnExtract" class="accent" type="button">Call Extraction Chopper</button>
+          </div>
+
+          <div class="ctaRow">
+            <button id="btnNewRun" class="ghost" type="button">New Run</button>
+            <button id="btnRevive" class="danger" type="button">Revive (onchain)</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panelHead">
+            <div>
+              <div class="h">Leaderboard</div>
+              <div class="p">Best extracted loot (local demo; wire your contract events later)</div>
+            </div>
+            <button id="btnShare" class="ghost" type="button">Share</button>
+          </div>
+          <div class="board" id="board"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panelHead">
+            <div>
+              <div class="h">Support the dev</div>
+              <div class="p">Send a USDC tip (Base mainnet)</div>
+            </div>
+            <button id="btnTip" class="primary" type="button">Tip</button>
+          </div>
+          <div class="p small">
+            Recipient: <span class="mono">0xB331328F506f2D35125e367A190e914B1b6830cF</span>
+          </div>
+          <div id="tipStatus" class="p small muted"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panelHead">
+            <div>
+              <div class="h">Mini App Health</div>
+              <div class="p">These must be green to avoid browser mode.</div>
+            </div>
+            <button id="btnRecheck" class="ghost" type="button">Re-check</button>
+          </div>
+          <div class="checks" id="checks"></div>
+        </section>
+      </main>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+      <div id="sheetBackdrop" class="sheetBackdrop hidden"></div>
+      <div id="tipSheet" class="sheet hidden" role="dialog" aria-modal="true" aria-label="Tip">
+        <div class="sheetHandle"></div>
+        <div class="sheetTitle">Send a Tip</div>
+        <div class="sheetBody">
+          <div class="presetRow">
+            <button class="chip" data-amt="1" type="button">$1</button>
+            <button class="chip" data-amt="5" type="button">$5</button>
+            <button class="chip" data-amt="10" type="button">$10</button>
+            <button class="chip" data-amt="25" type="button">$25</button>
+          </div>
+          <label class="field">
+            <div class="label">Custom amount (USD)</div>
+            <input id="customAmt" inputmode="decimal" placeholder="e.g. 3.5" />
+          </label>
+
+          <div class="sheetActions">
+            <button id="btnTipCancel" class="ghost" type="button">Cancel</button>
+            <button id="btnTipSend" class="primary" type="button">Send USDC</button>
+          </div>
+
+          <div id="tipError" class="p small dangerText hidden"></div>
+          <div class="p small muted">
+            USDC: <span class="mono">0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</span> (6 decimals)
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div id="heliOverlay" class="heliOverlay hidden" aria-hidden="true">
+        <div class="heliStage">
+          <div class="heli">
+            <div class="heliBody"></div>
+            <div class="heliTail"></div>
+            <div class="heliRotor"></div>
+            <div class="heliRotor2"></div>
+            <div class="beam"></div>
+          </div>
+          <div class="heliText">
+            <div class="heliTitle">Extraction Confirmed</div>
+            <div class="heliSub">Lift-off… securing loot onchain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="https://extraxtor.vercel.app/app.js"></script>
+  </body>
+</html>

@@ -11,7 +11,7 @@
     "description": "Dive deeper for more loot. Extract to secure it onchain. Die and lose the run. Pay to revive and try again.",
     "iconUrl": "https://extraxtor.vercel.app/assets/icon-1024.png",
     "homeUrl": "https://extraxtor.vercel.app/",
-    "canonicalDomain": "https://extraxtor.vercel.app/",
+    "canonicalDomain": "extraxtor.vercel.app",
     "splashImageUrl": "https://extraxtor.vercel.app/assets/splash-200.png",
     "splashBackgroundColor": "#001b0a",
     "primaryCategory": "games",
@@ -28,6 +28,7 @@
     "requiredCapabilities": [
       "actions.ready",
       "wallet.getEthereumProvider"
-    ]
+    ],
+    "imageUrl": "https://extraxtor.vercel.app/assets/embed-3x2.png"
   }
 }
